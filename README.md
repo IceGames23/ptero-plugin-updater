@@ -6,7 +6,7 @@
 
 A robust, "set-and-forget" wrapper script designed for **Pterodactyl** Minecraft servers. It automatically handles plugin updates, manages rolling backups, and safeguards your data before the server starts.
 
-> **Originally created for [AfterLands Server](https://www.afterlands.com)**.
+> **Originally created for [AfterLands Project](https://www.afterlands.com)**.
 > **Support Discord:** https://discord.gg/qGqRxx3V2J
 
 ---

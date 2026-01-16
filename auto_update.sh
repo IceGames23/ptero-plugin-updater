@@ -45,7 +45,7 @@ GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 CYAN='\033[0;36m'
 RED='\033[0;31m'
-NC='\033[0m'
+NC='\033[0m' # No Color
 
 # Date formats
 TODAY_DIR=$(date +%Y-%m-%d)
@@ -67,7 +67,10 @@ if [ "$ENABLE_SELF_UPDATE" == "true" ]; then
     curl -s -L "$REMOTE_URL" -o "$TEMP_SCRIPT"
     
     if [ -f "$TEMP_SCRIPT" ]; then
+        # Try grep with -P (Perl regex)
         REMOTE_VERSION=$(grep -oP 'SCRIPT_VERSION="\K[^"]+' "$TEMP_SCRIPT" 2>/dev/null)
+        
+        # Fallback for Alpine Linux (BusyBox grep doesn't support -P)
         if [ -z "$REMOTE_VERSION" ]; then
              REMOTE_VERSION=$(grep 'SCRIPT_VERSION=' "$TEMP_SCRIPT" | head -1 | cut -d'"' -f2)
         fi
@@ -150,4 +153,4 @@ fi
 echo -e "${YELLOW}[System] Starting Java Process ($SERVER_JAR)...${NC}"
 echo "-----------------------------------------------------"
 
-exec $JAVA_BINARY $JAVA_FLAGS -jar $SERVER_JAR
+exec $JAVA_BINARY $JAVA_FLAGS -jar "$SERVER_JAR"

@@ -13,11 +13,11 @@ A robust, "set-and-forget" wrapper script designed for **Pterodactyl** Minecraft
 
 ## 🚀 Features
 
-* **Smart Plugin Updating**: Detects new `.jar` files in the `AfterUpdate` folder.
+* **Smart Plugin Updating**: Detects new `.jar` files in the `auto-updater` folder.
 * **Strict Identity Matching**: Differentiates between similar plugins (e.g., `Plugin-v1.jar` vs `PluginAddon-v1.jar`) using regex, preventing accidental deletions.
 * **Automatic Backups**: Before updating any plugin, a backup of the old version is created.
 * **Rolling Retention**: Automatically deletes backup folders older than **3 days** (configurable) to save disk space.
-* **Self-Updating Script**: The script can update itself from this repository (optional toggle).
+* **Self-Updating Script**: The script can update itself from this repository (optional toggle for safety).
 * **Java Flag Management**: Configure memory and Java flags directly within the script variables.
 * **Crash Prevention**: Uses `exec` to seamlessly pass control to Java, preventing Pterodactyl container crashes.
 
